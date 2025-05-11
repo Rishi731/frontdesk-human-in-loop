@@ -37,10 +37,10 @@ document.getElementById('start-video').addEventListener('click', async () => {
                     const videoElement = track.attach();
                     videoElement.autoplay = true;
                     videoElement.muted = true;
-                    videoElement.style.width = "100%";  // Make video element take full width
-                    videoElement.style.height = "100%"; // Make video element take full height
-                    videoElement.style.objectFit = "contain"; // Ensure the whole video fits
-                    document.getElementById('livekit-room').innerHTML = ''; // Clear previous
+                    videoElement.style.width = "100%";
+                    videoElement.style.height = "100%";
+                    videoElement.style.objectFit = "contain";
+                    document.getElementById('livekit-room').innerHTML = '';
                     document.getElementById('livekit-room').appendChild(videoElement);
                 }
             }
@@ -88,7 +88,6 @@ document.getElementById('stop-video').addEventListener('click', () => {
 document.getElementById('audio-toggle').addEventListener('change', (event) => {
     audioOnly = event.target.checked;
     if (videoStarted) {
-        // Reconnect if already started, with updated preferences
         room.disconnect();
         document.getElementById('start-video').click();
     }

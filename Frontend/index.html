@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Receptionist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #eef2f7;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 8px;
+            border: none;
+            border-radius: 6px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #stop-video {
+            background-color: #e74c3c;
+        }
+        #stop-video:hover {
+            background-color: #c0392b;
+        }
+        .audio-toggle {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #34495e;
+        }
+        .audio-toggle input {
+            margin-left: 10px;
+        }
+        .video-container {
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        #livekit-room {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        #question {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        #ai-response {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2c3e50;
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Receptionist</h1>
+        <button id="start-video">Start Video Call</button>
+        <button id="stop-video" style="display: none;">Stop Video Call</button>
+        
+        <div class="audio-toggle">
+            <label for="audio-toggle">Audio Only:</label>
+            <input type="checkbox" id="audio-toggle" />
+        </div>
+
+        <div class="video-container">
+            <div id="livekit-room"></div>
+        </div>
+
+        <input type="text" id="question" placeholder="Ask a question" disabled />
+        <button onclick="askAI()">Ask</button>
+
+        <p id="ai-response"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

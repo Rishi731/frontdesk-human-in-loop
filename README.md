@@ -41,12 +41,13 @@ Run the following command to install all required libraries:
 -- pip install -r requirements.txt
 
 ### 4. Firebase Setup
-Make sure you have Firebase set up with Firestore enabled. Download the `firebase-adminsdk` credentials file from the Firebase console and store it in your project directory.
+Make sure you have Firebase set up with Firestore enabled. Download the `firebase-adminsdk` credentials file from the Firebase console and store it in your project directory Backend folder.
 
-Then, create a `.env` file in the root of your project with the following content:
+Then, create a `.env` file in the Backend folder of your project with the following content:
 
 ```env
 FIREBASE_CREDENTIALS_PATH=path/to/your/firebase/credentials.json
+LIVEKIT_URL=your_livekit_url
 LIVEKIT_API_KEY=your_livekit_api_key
 LIVEKIT_API_SECRET=your_livekit_api_secret
 ```
